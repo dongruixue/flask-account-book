@@ -1,0 +1,23 @@
+Flask 入门项目
+
+简单记账本
+总收入 {{ "%.2f"|format(summary.income) }}
+总支出 {{ "%.2f"|format(summary.expense) }}
+结余 {{ "%.2f"|format(summary.balance) }}
+添加账目
+类型 
+收入
+金额 
+备注 
+例如：工资、午饭、交通
+添加
+账目明细
+{% if records %}
+{% for record in records %} {% endfor %}
+编号	类型	金额	备注	操作
+{{ loop.index }}	{{ record.type }}	{{ "%.2f"|format(record.amount) }}	{{ record.note }}	
+删除
+{% else %}
+还没有账目，请先添加一条收入或支出。
+
+{% endif %}
